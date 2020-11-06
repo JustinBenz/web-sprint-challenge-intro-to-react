@@ -21,6 +21,9 @@ const App = () => {
         console.log(fuzz)
       })
   })
+  const openDetails = id => {
+    
+  }
   return (
     <div className="App">
       <h1 className="Header">Characters</h1>

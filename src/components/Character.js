@@ -8,7 +8,8 @@ export default function Character (props) {
         Axios
             .get(`${props.url}`)
             .then((res) => {
-                console.log(res.data);
+                console.log(setDetails(res.data))
+                
             })
             .catch((fuzz) => {
                 console.log(fuzz);
@@ -17,8 +18,11 @@ export default function Character (props) {
     
     return(
         <div className="Char-Container">
+            <div className="Char-Img">
+                {/* <img src=/> */}
+            </div>
             <h1>{props.name}</h1>
-            <button>Expand Details</button>
+            <button>+</button>
         </div>
     )
 }
