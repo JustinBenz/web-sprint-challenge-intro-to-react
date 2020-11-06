@@ -4,25 +4,24 @@ import React,{ useEffect, useState }from "react"
 import '../App.css'
 export default function Character (props) {
     const[details, setDetails]= useState([])
+    const[isOpen, setIsOpen]= useState(false)
     useEffect(() => {
         Axios
             .get(`${props.url}`)
             .then((res) => {
-                console.log(setDetails(res.data))
-                
+                setDetails(res.data)
             })
             .catch((fuzz) => {
                 console.log(fuzz);
             })
-        },[Character])
-    
+        },[props.url])
     return(
         <div className="Char-Container">
             <div className="Char-Img">
-                {/* <img src=/> */}
+                <img src={details.sprites?.other["official-artwork"].front_default} alt="pokemon artwork"/>
             </div>
-            <h1>{props.name}</h1>
-            <button>+</button>
+            <h1>{details.name}</h1>
+            {isOpen ? <button onClick={() => { setIsOpen(false) }}>-</button> : <button onClick={() => {setIsOpen(true)}}>+</button> }
         </div>
     )
 }

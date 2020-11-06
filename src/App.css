@@ -18,6 +18,8 @@
   align-items: flex-end;
 }
 .Char-Img {
-  background-color: black;
+}
+.Char-Img img {
+  width: 100%;
 }
 /* write your parent styles in here for your App.js */

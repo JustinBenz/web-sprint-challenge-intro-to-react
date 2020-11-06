@@ -15,12 +15,13 @@ const App = () => {
     axios
       .get(`${ BASE_URL }${ LISTM }`)
       .then((res) => {
-        setPokemonList(res.data.results)
+        setPokemonList(res.data.results);
+        console.log(res.data.results)
       })
       .catch((fuzz) => {
         console.log(fuzz)
       })
-  })
+  },[])
   const openDetails = id => {
     
   }
@@ -30,7 +31,7 @@ const App = () => {
       <div className="Char-cov">
         {
           pokemonList.map((pk) => {
-            return <Character name={pk.name} url={pk.url}/>
+            return <Character key={pk.name} url={pk.url}/>
           })
         }
       </div>
